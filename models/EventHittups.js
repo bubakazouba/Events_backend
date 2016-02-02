@@ -11,7 +11,10 @@ var EventSchema = new Schema({
       lowQualityImageurl: String,
       highQualityImageurl: String
     }],
-    ownerName: String,
+    owner: {
+      name: String,
+      imageurl: String
+    },
     imageurl: String,
     loc: { 
       type: { type: String },
