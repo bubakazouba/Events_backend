@@ -3,9 +3,7 @@ var Schema  = mongoose.Schema;
 
 var EventSchema = new Schema({
     title: String,
-    isPrivate: Boolean,
     duration: Number,
-    dateCreated: Number,
     dateStarts: Number,
     description: String,
     emoji: String,
@@ -13,15 +11,12 @@ var EventSchema = new Schema({
       lowQualityImageurl: String,
       highQualityImageurl: String
     }],
-    owner: { type: Schema.ObjectId, ref: 'EventOrganizers' },
+    ownerName: String,
+    imageurl: String,
     loc: { 
       type: { type: String },
-      coordinates: [ ] ,// [<longitude>, <latitude>]
-      city: String,
-      state: String,
+      coordinates: [ ]// [<longitude>, <latitude>]
     },
-    usersInvited: [{ type: Schema.ObjectId, ref: 'Users' }],
-    usersJoined: [{ type: Schema.ObjectId, ref: 'Users' }]
 }, {collection: 'EventHittups'});
 
 EventSchema.index({ loc: '2dsphere' });
