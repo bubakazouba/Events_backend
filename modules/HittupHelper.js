@@ -49,6 +49,8 @@ function postEventHittup(req, callback) {
     if(!mongodb.db) {return callback({"success": "false", "error": "DB not connected"});}
 
     var body = req.body;
+
+    body.description = body.description.split(";;;").join("\n")
     var hittup = new EventHittupsSchema({
         owner: {
             name: body.ownerName,
